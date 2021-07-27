@@ -47,42 +47,42 @@ console.log(totalMass);
 const totalHeight = characters.reduce((acc, cur) => acc + eval(cur.height), 0);
 console.log(totalHeight);
 //3. Get total number of characters by eye color
-const getCharactersByEyeColor = characters.reduce((acc, cur) => {
-    console.log("call", acc);
-    console.log("call", cur);
-    const color = cur.eye_color;
-    const name = cur.name
-    // let result = {result:[]};
-    if(acc[color]){
-        // acc = {
-        //     color,
-        //     count : acc[color]++,
-        //     name: [].push(name),
-        // };
-        accTemp = {
-            color: accTemp['color'] + 1,
-            'name' : name,
-        }
-        // acc = accTemp;
-        // result['result'].push(accTemp);
-    } 
-    else{
-        // acc = {
-        //     color,
-        //     count : 1,
-        //     name,
-        // };
-        acc[color] = 1;
-        acc['name'] = name;
-        // acc = accTemp;
-        // result['result'].push(accTemp);
-    }
-    console.log(acc);
-    // result['result'].push(acc);
-    // console.log(result);
-    return acc;
-}, {});
-console.log(getCharactersByEyeColor);
+// const getCharactersByEyeColor = characters.reduce((acc, cur) => {
+//     console.log("call", acc);
+//     console.log("call", cur);
+//     const color = cur.eye_color;
+//     const name = cur.name
+//     // let result = {result:[]};
+//     if(acc[color]){
+//         // acc = {
+//         //     color,
+//         //     count : acc[color]++,
+//         //     name: [].push(name),
+//         // };
+//         accTemp = {
+//             color: accTemp['color'] + 1,
+//             'name' : name,
+//         }
+//         // acc = accTemp;
+//         // result['result'].push(accTemp);
+//     } 
+//     else{
+//         // acc = {
+//         //     color,
+//         //     count : 1,
+//         //     name,
+//         // };
+//         acc[color] = 1;
+//         acc['name'] = name;
+//         // acc = accTemp;
+//         // result['result'].push(accTemp);
+//     }
+//     console.log(acc);
+//     // result['result'].push(acc);
+//     // console.log(result);
+//     return acc;
+// }, {});
+// console.log(getCharactersByEyeColor);
 //4. Get total number of characters in all the character names
 
 //***FILTER***
@@ -108,3 +108,5 @@ console.log(getCharactersByEyeColor);
 //2. Is there at least one character with blue eyes?
 //3. Is there at least one character taller than 210?
 //4. Is there at least one character that has mass less than 50?
+const pi = Math.PI;
+console.log(Math);
