@@ -1,92 +1,118 @@
 const characters = [
     {
         name: 'Luke Skywalker',
-        height: '172',
-        mass: '77',
+        height: 172,
+        mass: 77,
         eye_color: 'blue',
         gender: 'male',
     },
     {
         name: 'Darth Vader',
-        height: '202',
-        mass: '136',
+        height: 202,
+        mass: 136,
         eye_color: 'yellow',
         gender: 'male',
     },
     {
         name: 'Leia Organa',
-        height: '150',
-        mass: '49',
+        height: 150,
+        mass: 49,
         eye_color: 'brown',
         gender: 'female',
     },
     {
         name: 'Anakin Skywalker',
-        height: '188',
-        mass: '84',
+        height: 188,
+        mass: 84,
         eye_color: 'blue',
         gender: 'male',
     },
 ];
 
-console.log(characters);
+
+
 
 //***MAP***
 //1. Get array of all names
+const allNames = characters.map((character)=>{
+    return character.name;
+});
+console.log(allNames);////[ 'Luke Skywalker', 'Darth Vader', 'Leia Organa', 'Anakin Skywalker' ]
+
 //2. Get array of all heights
+const allHeights = characters.map((character)=>character.height);
+console.log(allHeights);
+////[ 172, 202, 150, 188 ]
+
 //3. Get array of objects with just name and height properties
+const minifiedRecords = characters.map((character)=>{
+    return {
+        name: character.name,
+        height: character.height
+    }
+});
+console.log(minifiedRecords);
+/*[
+  { name: 'Luke Skywalker', height: 172 },
+  { name: 'Darth Vader', height: 202 },
+  { name: 'Leia Organa', height: 150 },
+  { name: 'Anakin Skywalker', height: 188 }
+]
+*/
+
 //4. Get array of all first names
+const allFirstNames = characters.map((character)=> character.name.split(" "));
+console.log("all first names are",allFirstNames);
+/*with only splitting
+[
+  [ 'Luke', 'Skywalker' ],
+  [ 'Darth', 'Vader' ],
+  [ 'Leia', 'Organa' ],
+  [ 'Anakin', 'Skywalker' ]
+]
+*/
+////splitting and selecting [0]
+////[ 'Luke', 'Darth', 'Leia', 'Anakin' ]
+
+
+
 
 //***REDUCE***
 //1. Get total mass of all characters
 const totalMass = characters.reduce((acc, cur) => {
     return acc + eval(cur.mass);
 }, 0);
-console.log(totalMass);
+console.log(totalMass);////346
+
 //2. Get total height of all characters
 const totalHeight = characters.reduce((acc, cur) => acc + eval(cur.height), 0);
-console.log(totalHeight);
+console.log(totalHeight);////712
+
 //3. Get total number of characters by eye color
-// const getCharactersByEyeColor = characters.reduce((acc, cur) => {
-//     console.log("call", acc);
-//     console.log("call", cur);
-//     const color = cur.eye_color;
-//     const name = cur.name
-//     // let result = {result:[]};
-//     if(acc[color]){
-//         // acc = {
-//         //     color,
-//         //     count : acc[color]++,
-//         //     name: [].push(name),
-//         // };
-//         accTemp = {
-//             color: accTemp['color'] + 1,
-//             'name' : name,
-//         }
-//         // acc = accTemp;
-//         // result['result'].push(accTemp);
-//     } 
-//     else{
-//         // acc = {
-//         //     color,
-//         //     count : 1,
-//         //     name,
-//         // };
-//         acc[color] = 1;
-//         acc['name'] = name;
-//         // acc = accTemp;
-//         // result['result'].push(accTemp);
-//     }
-//     console.log(acc);
-//     // result['result'].push(acc);
-//     // console.log(result);
-//     return acc;
-// }, {});
-// console.log(getCharactersByEyeColor);
+const getCharactersByEyeColor = characters.reduce((acc, cur) => {
+    const color = cur.eye_color;
+    if(acc[color]){
+        acc[color]++;
+    } 
+    else{
+        acc[color] = 1;
+    }
+    return acc;
+}, {});
+console.log(getCharactersByEyeColor);////{ blue: 2, yellow: 1, brown: 1 }
+
 //4. Get total number of characters in all the character names
+const totalNumberOfCharacters = characters.reduce((acc, cur)=>{
+    return acc + cur.name.length;
+}, 0);
+console.log(totalNumberOfCharacters);////52
+
+
+
 
 //***FILTER***
 //1. Get characters with mass greater than 100
+
 //2. Get characters with height less than 200
 //3. Get all male characters
 //4. Get all female characters
@@ -108,5 +134,3 @@ console.log(totalHeight);
 //2. Is there at least one character with blue eyes?
 //3. Is there at least one character taller than 210?
 //4. Is there at least one character that has mass less than 50?
-const pi = Math.PI;
-console.log(Math);
