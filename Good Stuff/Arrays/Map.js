@@ -112,16 +112,120 @@ console.log(totalNumberOfCharacters);////52
 
 //***FILTER***
 //1. Get characters with mass greater than 100
+const massGreater = characters.filter((element)=>element.mass >100);
+console.log(massGreater);
+/*[
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male'
+  }
+]
+*/
 
 //2. Get characters with height less than 200
+const heightShorter = characters.filter((element) => element.height < 200);
+console.log(heightShorter);
+/*
+ [
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female'
+  },
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male'
+  }
+] 
+ */
+
 //3. Get all male characters
+const allMaleCharacters = characters.filter((element) => element.gender === 'male');
+console.log(allMaleCharacters);
+/*
+[
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male'
+  },
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male'
+  }
+]
+ */
+
 //4. Get all female characters
+const allFemaleCharacters = characters.filter((element) => element.gender === 'female');
+console.log(allFemaleCharacters);
+/*
+[
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female'
+  }
+]
+ */
+
+
+
 
 //***SORT***
 //1. Sort by mass
+const byMass = characters.sort((a, b)=>{
+    return a.mass-b.mass;
+});
+console.log(byMass);
 //2. Sort by height
+const byHeight = characters.sort((a, b) => a.height - b.height);
+console.log(byHeight);
 //3. Sort by name
+const byName = characters.sort((a, b)=>{
+    if(a.name < b.name) return -1;
+    return 1;
+});
+console.log(byName);
+
 //4. Sort by gender
+const byGender = characters.sort((a, b) => {
+    if( a.gender === 'female') return -1;
+    return 1;
+});
+console.log(byGender);
+
+
+
 
 //***EVERY***
 //1. Does every character have blue eyes?
