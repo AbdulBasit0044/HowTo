@@ -37,7 +37,8 @@ const characters = [
 const allNames = characters.map((character)=>{
     return character.name;
 });
-console.log(allNames);////[ 'Luke Skywalker', 'Darth Vader', 'Leia Organa', 'Anakin Skywalker' ]
+console.log(allNames);
+////[ 'Luke Skywalker', 'Darth Vader', 'Leia Organa', 'Anakin Skywalker' ]
 
 //2. Get array of all heights
 const allHeights = characters.map((character)=>character.height);
@@ -207,15 +208,113 @@ const byMass = characters.sort((a, b)=>{
     return a.mass-b.mass;
 });
 console.log(byMass);
+/*
+[
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female'
+  },
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male'
+  }
+]
+ */
+
 //2. Sort by height
 const byHeight = characters.sort((a, b) => a.height - b.height);
 console.log(byHeight);
+/*
+[
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female'
+  },
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male'
+  }
+]
+ */
+
 //3. Sort by name
 const byName = characters.sort((a, b)=>{
     if(a.name < b.name) return -1;
     return 1;
 });
 console.log(byName);
+/*
+[
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male'
+  },
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female'
+  },
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male'
+  }
+]
+ */
 
 //4. Sort by gender
 const byGender = characters.sort((a, b) => {
@@ -223,18 +322,87 @@ const byGender = characters.sort((a, b) => {
     return 1;
 });
 console.log(byGender);
+/*
+[
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female'
+  },
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male'
+  },
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male'
+  },
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male'
+  }
+]
+ */
 
 
 
 
 //***EVERY***
 //1. Does every character have blue eyes?
+const blueEyes = characters.every((element)=>{
+    return element.eye_color === 'blue';
+});
+console.log(blueEyes);
+////false
+
 //2. Does every character have mass more than 40?
-//3. Is every character shorter than 200?
+const massMoreThan40 = characters.every((element) => element.mass > 40);
+console.log(massMoreThan40);
+////true
+
+//3. Is every character shorter than 200 height?
+const shorterThan200 = characters.every((element) => element.height > 200);
+console.log(shorterThan200);
+////false
+
 //4. Is every character male?
+const everyCharacterMale = characters.every((element) => element.gender === 'male');
+console.log(everyCharacterMale);
+////false
+
+
+
 
 //***SOME***
 //1. Is there at least one male character?
+const atLeaseOneMale = characters.some((element)=>{
+    return element.gender === 'male';
+});
+console.log(atLeaseOneMale);
+////true
+
 //2. Is there at least one character with blue eyes?
+const atLeastOneBlueEye = characters.some((element) => element.eye_color === 'blue');
+console.log(atLeastOneBlueEye);
+////true
+
 //3. Is there at least one character taller than 210?
+const atLeaseOneTallerThan210 = characters.some((element ) => element.height > 210);
+console.log(atLeaseOneTallerThan210);
+/////false
+
 //4. Is there at least one character that has mass less than 50?
+const atLeaseOneLessMass50 = characters.some((element) => element.mass < 50);
+console.log(atLeaseOneLessMass50);
+////true
