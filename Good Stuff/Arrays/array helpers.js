@@ -24,3 +24,4 @@ console.log(colorsCapitalized);
 console.log(colors);
 
 console.log("this is more than what i expected");
+
