@@ -1,32 +1,32 @@
 const characters = [
-    {
-        name: 'Luke Skywalker',
-        height: 172,
-        mass: 77,
-        eye_color: 'blue',
-        gender: 'male',
-    },
-    {
-        name: 'Darth Vader',
-        height: 202,
-        mass: 136,
-        eye_color: 'yellow',
-        gender: 'male',
-    },
-    {
-        name: 'Leia Organa',
-        height: 150,
-        mass: 49,
-        eye_color: 'brown',
-        gender: 'female',
-    },
-    {
-        name: 'Anakin Skywalker',
-        height: 188,
-        mass: 84,
-        eye_color: 'blue',
-        gender: 'male',
-    },
+  {
+    name: 'Luke Skywalker',
+    height: 172,
+    mass: 77,
+    eye_color: 'blue',
+    gender: 'male',
+  },
+  {
+    name: 'Darth Vader',
+    height: 202,
+    mass: 136,
+    eye_color: 'yellow',
+    gender: 'male',
+  },
+  {
+    name: 'Leia Organa',
+    height: 150,
+    mass: 49,
+    eye_color: 'brown',
+    gender: 'female',
+  },
+  {
+    name: 'Anakin Skywalker',
+    height: 188,
+    mass: 84,
+    eye_color: 'blue',
+    gender: 'male',
+  },
 ];
 
 
@@ -34,23 +34,23 @@ const characters = [
 
 //***MAP***
 //1. Get array of all names
-const allNames = characters.map((character)=>{
-    return character.name;
+const allNames = characters.map((character) => {
+  return character.name;
 });
 console.log(allNames);
 ////[ 'Luke Skywalker', 'Darth Vader', 'Leia Organa', 'Anakin Skywalker' ]
 
 //2. Get array of all heights
-const allHeights = characters.map((character)=>character.height);
+const allHeights = characters.map((character) => character.height);
 console.log(allHeights);
 ////[ 172, 202, 150, 188 ]
 
 //3. Get array of objects with just name and height properties
-const minifiedRecords = characters.map((character)=>{
-    return {
-        name: character.name,
-        height: character.height
-    }
+const minifiedRecords = characters.map((character) => {
+  return {
+    name: character.name,
+    height: character.height
+  }
 });
 console.log(minifiedRecords);
 /*[
@@ -62,8 +62,8 @@ console.log(minifiedRecords);
 */
 
 //4. Get array of all first names
-const allFirstNames = characters.map((character)=> character.name.split(" "));
-console.log("all first names are",allFirstNames);
+const allFirstNames = characters.map((character) => character.name.split(" "));
+console.log("all first names are", allFirstNames);
 /*with only splitting
 [
   [ 'Luke', 'Skywalker' ],
@@ -81,7 +81,7 @@ console.log("all first names are",allFirstNames);
 //***REDUCE***
 //1. Get total mass of all characters
 const totalMass = characters.reduce((acc, cur) => {
-    return acc + eval(cur.mass);
+  return acc + eval(cur.mass);
 }, 0);
 console.log(totalMass);////346
 
@@ -91,20 +91,20 @@ console.log(totalHeight);////712
 
 //3. Get total number of characters by eye color
 const getCharactersByEyeColor = characters.reduce((acc, cur) => {
-    const color = cur.eye_color;
-    if(acc[color]){
-        acc[color]++;
-    } 
-    else{
-        acc[color] = 1;
-    }
-    return acc;
+  const color = cur.eye_color;
+  if (acc[color]) {
+    acc[color]++;
+  }
+  else {
+    acc[color] = 1;
+  }
+  return acc;
 }, {});
 console.log(getCharactersByEyeColor);////{ blue: 2, yellow: 1, brown: 1 }
 
 //4. Get total number of characters in all the character names
-const totalNumberOfCharacters = characters.reduce((acc, cur)=>{
-    return acc + cur.name.length;
+const totalNumberOfCharacters = characters.reduce((acc, cur) => {
+  return acc + cur.name.length;
 }, 0);
 console.log(totalNumberOfCharacters);////52
 
@@ -113,7 +113,7 @@ console.log(totalNumberOfCharacters);////52
 
 //***FILTER***
 //1. Get characters with mass greater than 100
-const massGreater = characters.filter((element)=>element.mass >100);
+const massGreater = characters.filter((element) => element.mass > 100);
 console.log(massGreater);
 /*[
   {
@@ -204,8 +204,8 @@ console.log(allFemaleCharacters);
 
 //***SORT***
 //1. Sort by mass
-const byMass = characters.sort((a, b)=>{
-    return a.mass-b.mass;
+const byMass = characters.sort((a, b) => {
+  return a.mass - b.mass;
 });
 console.log(byMass);
 /*
@@ -278,9 +278,9 @@ console.log(byHeight);
  */
 
 //3. Sort by name
-const byName = characters.sort((a, b)=>{
-    if(a.name < b.name) return -1;
-    return 1;
+const byName = characters.sort((a, b) => {
+  if (a.name < b.name) return -1;
+  return 1;
 });
 console.log(byName);
 /*
@@ -318,8 +318,8 @@ console.log(byName);
 
 //4. Sort by gender
 const byGender = characters.sort((a, b) => {
-    if( a.gender === 'female') return -1;
-    return 1;
+  if (a.gender === 'female') return -1;
+  return 1;
 });
 console.log(byGender);
 /*
@@ -360,8 +360,8 @@ console.log(byGender);
 
 //***EVERY***
 //1. Does every character have blue eyes?
-const blueEyes = characters.every((element)=>{
-    return element.eye_color === 'blue';
+const blueEyes = characters.every((element) => {
+  return element.eye_color === 'blue';
 });
 console.log(blueEyes);
 ////false
@@ -386,8 +386,8 @@ console.log(everyCharacterMale);
 
 //***SOME***
 //1. Is there at least one male character?
-const atLeaseOneMale = characters.some((element)=>{
-    return element.gender === 'male';
+const atLeaseOneMale = characters.some((element) => {
+  return element.gender === 'male';
 });
 console.log(atLeaseOneMale);
 ////true
@@ -398,7 +398,7 @@ console.log(atLeastOneBlueEye);
 ////true
 
 //3. Is there at least one character taller than 210?
-const atLeaseOneTallerThan210 = characters.some((element ) => element.height > 210);
+const atLeaseOneTallerThan210 = characters.some((element) => element.height > 210);
 console.log(atLeaseOneTallerThan210);
 /////false
 
